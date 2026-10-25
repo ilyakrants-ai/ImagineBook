@@ -16,3 +16,6 @@ Some parts of mod use Access Wideners, at some point other dev started to use Ac
 Riflusso for neoforge port and updating the mod 
 
 [Webp-ImageIO](https://github.com/sejda-pdf/webp-imageio) by Seija PDF 
+## Сборка из исходников
+
+Инструкция по компиляции в IntelliJ IDEA (Minecraft 1.21.11, Fabric + NeoForge): [BUILD_INTELLIJ_RU.md](BUILD_INTELLIJ_RU.md)
