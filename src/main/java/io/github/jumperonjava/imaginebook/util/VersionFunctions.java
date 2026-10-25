@@ -2,6 +2,8 @@ package io.github.jumperonjava.imaginebook.util;
 
 import io.github.jumperonjava.imaginebook.Imaginebook;
 import net.minecraft.client.gui.DrawContext;
+//? if >= 1.21.6
+/*import net.minecraft.client.font.TextRenderer;*/
 //? if < 1.21.3
 import net.minecraft.client.render.RenderLayer;
 //? if >= 1.21.6
@@ -104,4 +106,14 @@ public class VersionFunctions {
         collection.forEach((item) -> reversedList.add(0, item));
         return new ArrayList<>(reversedList);
     }
+
+    //? if >= 1.21.6 {
+    /*public static List<OrderedText> wrapLines(TextRenderer textRenderer, String content, int maxWidth) {
+        return textRenderer.wrapLines(StringVisitable.plain(content), maxWidth);
+    }
+    *//*?} else {*/
+    public static List<net.minecraft.text.OrderedText> wrapLines(net.minecraft.client.font.TextRenderer textRenderer, String content, int maxWidth) {
+        return textRenderer.wrapLines(net.minecraft.text.Text.literal(content), maxWidth);
+    }
+    //?}
 }

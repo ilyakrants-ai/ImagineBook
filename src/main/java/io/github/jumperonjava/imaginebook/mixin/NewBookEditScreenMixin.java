@@ -168,15 +168,15 @@ public abstract class NewBookEditScreenMixin extends Screen {
         *//*?} elif >= 1.21.6 {*/
         /*this.editBox.setText(content);
         *//*?} else {*/
-        /*this.dirty = true;
+        this.dirty = true;
         var start = currentPageSelectionManager.getSelectionStart();
         var end = currentPageSelectionManager.getSelectionEnd();
         start = MathHelper.clamp(start, 0, pages.size() - 1);
         end = MathHelper.clamp(end, 0, pages.size() - 1);
         currentPageSelectionManager.setSelection(start, end);
 
-        invalidatePageContent();*/
-        *///?}
+        invalidatePageContent();
+        //?}
     }
 
     /*? if <1.21.6 {*/
@@ -585,9 +585,9 @@ public abstract class NewBookEditScreenMixin extends Screen {
             //? if >= 1.21.6 {
             /*updateFields();
             return true;
-            *///?} else {
-            cir.setReturnValue(true);
+            *//*?} else {*/
             updateFields();
+            cir.setReturnValue(true);
             //?}
         }
         //? if >= 1.21.9 {
@@ -886,20 +886,20 @@ public abstract class NewBookEditScreenMixin extends Screen {
         if (((PageContentAccessor) this.getPageContent()).getLines().length > 14) {
             context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.ColorHelper.getArgb(255, 255, 100, 100));
         }
-        *//*?} elif >= 1.21.9 {*/
-        /*int contentAreaX = (this.width - 116) / 2 - 4;
+        //?} else {
+        int contentAreaX = (this.width - 116) / 2 - 4;
         int contentAreaY = 32;
 
-        List<OrderedText> wrappedLines = this.textRenderer.wrapLines(StringVisitable.plain(getCurrentPageContent()), 116);
+        var wrappedLines = VersionFunctions.wrapLines(this.textRenderer, getCurrentPageContent(), 116);
 
         int currentLineY = contentAreaY;
         int lineHeight = this.textRenderer.fontHeight;
 
-        for (OrderedText line : wrappedLines) {
+        for (var line : wrappedLines) {
             context.drawText(this.textRenderer, line, contentAreaX, currentLineY, 0x3F000000, false);
             currentLineY += lineHeight;
         }
-        *///?}
+        //?}
     }
 
 
