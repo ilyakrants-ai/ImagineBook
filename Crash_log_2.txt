@@ -1,0 +1,41 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS A:\mods\ImagineBook> ./gradlew :1.21.11-fabric:buildAndCollect
+Running Stonecutter 0.5
+
+> Configure project :1.20.1-fabric
+Architectury Loom: 1.14.476
+This version of Architectury Loom is in beta! Please report any issues you encounter: https://github.com/architectury/architectury-loom/issues
+Architect Plugin: 3.4.164
+
+> Task :1.21.11-fabric:compileJava FAILED
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:893: error: illegal start of expression
+        *//*?} elif >= 1.21.9 {*/
+        ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:910: error: illegal start of expression
+    }
+    ^
+2 errors
+[Incubating] Problems report is available at: file:///A:/mods/ImagineBook/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':1.21.11-fabric:compileJava'.
+> Compilation failed; see the compiler output below.
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:893: error: illegal start of expression
+          *//*?} elif >= 1.21.9 {*/
+          ^
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:910: error: illegal start of expression
+      }
+      ^
+  2 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 6s
+5 actionable tasks: 1 executed, 4 up-to-date
+PS A:\mods\ImagineBook>
