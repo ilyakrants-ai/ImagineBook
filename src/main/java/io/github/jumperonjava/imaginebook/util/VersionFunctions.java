@@ -9,7 +9,6 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderLayer;
 //?}
 //? if >= 1.21.6 {
-/*import net.minecraft.util.math.ColorHelper;*/
 //?}
 import net.minecraft.util.Identifier;
 //? if < 1.21.6 {
