@@ -7,6 +7,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.gui.screen.pack.PackScreen;
 import net.minecraft.client.render.entity.model.CowEntityModel;
+//? if < 1.21.6
 import net.minecraft.client.texture.MissingSprite;
 import net.minecraft.client.texture.NativeImageBackedTexture;
 import net.minecraft.util.Identifier;

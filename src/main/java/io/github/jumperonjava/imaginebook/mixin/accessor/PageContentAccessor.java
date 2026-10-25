@@ -5,7 +5,7 @@ import net.minecraft.client.util.math.Rect2i;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-//? if < 1.21.6 {
+//? if < 1.21.9 {
 @Mixin(BookEditScreen.PageContent.class)
 public interface PageContentAccessor {
     @Accessor("lines")

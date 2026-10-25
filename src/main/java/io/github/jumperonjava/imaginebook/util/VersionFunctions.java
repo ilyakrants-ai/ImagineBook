@@ -2,9 +2,12 @@ package io.github.jumperonjava.imaginebook.util;
 
 import io.github.jumperonjava.imaginebook.Imaginebook;
 import net.minecraft.client.gui.DrawContext;
+//? if < 1.21.3
 import net.minecraft.client.render.RenderLayer;
+//? if >= 1.21.6
+/*import net.minecraft.util.math.ColorHelper;*/
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.ColorHelper;
+//? if < 1.21.6
 import org.joml.Quaternionf;
 
 import java.util.ArrayList;
@@ -28,11 +31,17 @@ public class VersionFunctions {
     }
 
 
-    //? if < 1.21.3 {
+    //? if < 1.21.6 {
     public static ColorHelper.Argb ColorHelper = new ColorHelper.Argb();
     //?} else {
-    /*public static ColorHelper ColorHelper = new ColorHelper();
-    *///?}
+    /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
+
+    public static class LegacyColorHelper {
+        public int getArgb(int alpha, int red, int green, int blue) {
+            return net.minecraft.util.math.ColorHelper.getArgb(alpha, red, green, blue);
+        }
+    }*/
+    //?}
 
 
     public static void pushMatrix(DrawContext context) {
