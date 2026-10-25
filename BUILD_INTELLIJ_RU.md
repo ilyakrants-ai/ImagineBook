@@ -27,6 +27,26 @@ Gradle ставить не нужно — проект использует Grad
 > в `gradle.properties` (например, до `-Xmx8G`) или временно закомментируйте ненужные версии
 > в `settings.gradle.kts`, оставив только `mc("fabric", "1.21.11")` и `mc("neoforge", "1.21.11")`.
 
+### ⚠️ Ошибка «Gradle 8.x несовместим / extendsFrom» — быстрое решение
+
+Если IDEA показывает **«Ошибка совместимости Gradle»** (сообщение про `extendsFrom` или
+несовместимость версии Gradle с API), это почти всегда **не реальная ошибка сборки**, а следствие
+того, что IDEA по умолчанию пытается импортировать проект собственным встроенным Gradle
+(«Use Gradle from → Specified location» / Gradle distribution bundled with IDEA).
+
+Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle 8.11, что и в консоли):
+
+1. `Settings → Build, Execution, Deployment → Build Tools → Gradle`
+2. **Distribution Source** → выбрать **`Wrapper`** (в старых версиях IDEA: *Use Gradle from → gradle-wrapper.properties file*).
+3. **Gradle JVM** → **JDK 21** (проект не соберётся на JDK 17).
+4. Нажмите OK и выполните `File → Sync Project with Gradle Files` (иконка «бабочки»/🔄 в панели Gradle).
+
+Дополнительно можно снять галочку *«Configure on demand»* и включить
+*「Build and run using: Gradle」* в том же окне настроек Gradle.
+
+После этого ошибка совместимости исчезнет, а проект будет синхронизироваться той же
+конфигурацией, что и `./gradlew` из терминала.
+
 ## 3. Компиляция
 
 ### Вариант А: через панель Gradle в IDEA
