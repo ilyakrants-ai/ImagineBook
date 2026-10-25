@@ -29,12 +29,19 @@ Gradle ставить не нужно — проект использует Grad
 
 ### ⚠️ Ошибка «Gradle 8.x несовместим / extendsFrom» — быстрое решение
 
-Если IDEA показывает **«Ошибка совместимости Gradle»** (сообщение про `extendsFrom` или
-несовместимость версии Gradle с API), это почти всегда **не реальная ошибка сборки**, а следствие
-того, что IDEA по умолчанию пытается импортировать проект собственным встроенным Gradle
-(«Use Gradle from → Specified location» / Gradle distribution bundled with IDEA).
+Если IDEA показывает **«Ошибка совместимости Gradle»** (сообщение вида
+`org.gradle.api.artifacts.Configuration org.gradle.api.artifacts.Configuration.extendsFrom(org.gradle.api.provider.Provider[])`),
+это **не реальная ошибка сборки**, а следствие того, что IDEA по умолчанию пытается импортировать
+проект собственным встроенным Gradle («Use Gradle from → Specified location» / Gradle distribution
+bundled with IDEA) либо использует устаревший кэш синхронизации. Метод `extendsFrom(Provider[])`
+появился только в Gradle 8.11+, поэтому старый встроенный Gradle его «не видит».
 
-Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle 8.14, что и в консоли):
+Также IDEA может показывать предупреждение *«Gradle X is not the latest minor version, we recommend
+upgrading to Gradle Y»* — это инспекция, она не мешает сборке. Версия Wrapper в этом проекте всегда
+поддерживается актуальной (см. `gradle/wrapper/gradle-wrapper.properties`); если после обновления
+предупреждение не исчезло — просто пересинхронизируйте проект.
+
+Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle, что и в консоли):
 
 1. `Settings → Build, Execution, Deployment → Build Tools → Gradle`
 2. **Distribution Source** → выбрать **`Wrapper`** (в старых версиях IDEA: *Use Gradle from → gradle-wrapper.properties file*).
