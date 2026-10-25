@@ -2,22 +2,27 @@ package io.github.jumperonjava.imaginebook.util;
 
 import io.github.jumperonjava.imaginebook.Imaginebook;
 import net.minecraft.client.gui.DrawContext;
-//? if >= 1.21.6
+//? if >= 1.21.6 {
 /*import net.minecraft.client.font.TextRenderer;*/
-//? if < 1.21.3
+//?}
+//? if < 1.21.3 {
 import net.minecraft.client.render.RenderLayer;
-//? if >= 1.21.6
+//?}
+//? if >= 1.21.6 {
 /*import net.minecraft.util.math.ColorHelper;*/
+//?}
 import net.minecraft.util.Identifier;
-//? if < 1.21.6
+//? if < 1.21.6 {
 import org.joml.Quaternionf;
+//?}
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-//? if >= 1.21.6
+//? if >= 1.21.6 {
 /*import net.minecraft.client.gl.RenderPipelines;*/
+//?}
 
 import java.util.*;
 
@@ -33,21 +38,13 @@ public class VersionFunctions {
     }
 
 
-    //? if < 1.21.6 {
-    public static ColorHelper.Argb ColorHelper = new ColorHelper.Argb();
-    //?} else {
-    /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
-
-    public static class LegacyColorHelper {
-        public int getArgb(int alpha, int red, int green, int blue) {
-            //? if >= 1.21.7 {
-            /*return net.minecraft.util.math.ColorHelper.Argb.getArgb(alpha, red, green, blue);
-            *///?} else {
-            /*return net.minecraft.util.math.ColorHelper.getArgb(alpha, red, green, blue);
-            *///?}
-        }
-    }*/
-    //?}
+    public static int argb(int alpha, int red, int green, int blue) {
+        //? if >= 1.21.4 {
+        /*return net.minecraft.util.math.ColorHelper.Argb.getArgb(alpha, red, green, blue);
+        *///?} else {
+        return (alpha << 24) | (red << 16) | (green << 8) | blue;
+        //?}
+    }
 
 
     public static void pushMatrix(DrawContext context) {

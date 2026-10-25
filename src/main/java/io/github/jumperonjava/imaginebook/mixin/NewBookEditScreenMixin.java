@@ -2,8 +2,9 @@ package io.github.jumperonjava.imaginebook.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-//? if < 1.21.5
+//? if < 1.21.5 {
 import com.mojang.blaze3d.systems.RenderSystem;
+//?}
 import io.github.jumperonjava.imaginebook.*;
 import io.github.jumperonjava.imaginebook.image.Image;
 import io.github.jumperonjava.imaginebook.image.ImageData;
@@ -43,8 +44,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-//? if >= 1.21.3
+//? if >= 1.21.3 {
 /*import net.minecraft.component.type.WritableBookContentComponent;*/
+//?}
 
 //? if >= 1.21.6 {
 /*import net.minecraft.client.gui.widget.EditBoxWidget;
@@ -427,8 +429,9 @@ public abstract class NewBookEditScreenMixin extends Screen {
     private void updateFields() {
         List<Integer> pageErrors = new ArrayList<>();
         if (pageErrors.size() > 0) {
-            //? if < 1.21.6
+            //? if < 1.21.6 {
             /*signing = false;*/
+            //?}
             Imaginebook.cancelledFinalize = true;
             error = Text.translatable("imaginebook.error.too_long_encoded", String.join(", ", pageErrors.stream().map(s -> String.valueOf(s + 1)).toArray(String[]::new)));
         } else {
@@ -486,7 +489,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
     *///?} else {
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     void mouseClicked(double mouseX, double mouseY, int mouseButton, CallbackInfoReturnable<Boolean> cir) {
-        //?}
+    //?}
         var images = display_pages.get(currentPage);
         //? if >= 1.21.6 {
         /*boolean inSigningScreen = client.currentScreen instanceof BookSigningScreen;
@@ -585,7 +588,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
             //? if >= 1.21.6 {
             /*updateFields();
             return true;
-            *//*?} else {*/
+            *///?} else {
             updateFields();
             cir.setReturnValue(true);
             //?}
@@ -600,10 +603,13 @@ public abstract class NewBookEditScreenMixin extends Screen {
     //? if >= 1.21.9 {
     /*@Override
     public boolean mouseReleased(net.minecraft.client.gui.Click click) {
+    *///?} elif >= 1.21.6 {
+    /*@Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
     *///?} else {
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        //?}
+    //?}
         if (draggedByMouse != -1) {
             updateFields();
             draggedByMouse = -1;
@@ -813,7 +819,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
         //?}
 
         if (error != null) {
-            context.drawCenteredTextWithShadow(client.textRenderer, error, width / 2, height - 20, VersionFunctions.ColorHelper.getArgb(255, 255, 100, 100));
+            context.drawCenteredTextWithShadow(client.textRenderer, error, width / 2, height - 20, VersionFunctions.argb(255, 255, 100, 100));
         }
         boolean editing = currentEdited != -1;
         //? if >= 1.21.6
@@ -884,7 +890,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
         this.drawCursor(context, ((PageContentAccessor) this.getPageContent()).getPosition(), ((PageContentAccessor) this.getPageContent()).isAtEnd());
 
         if (((PageContentAccessor) this.getPageContent()).getLines().length > 14) {
-            context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.ColorHelper.getArgb(255, 255, 100, 100));
+            context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.argb(255, 255, 100, 100));
         }
         //?} else {
         int contentAreaX = (this.width - 116) / 2 - 4;

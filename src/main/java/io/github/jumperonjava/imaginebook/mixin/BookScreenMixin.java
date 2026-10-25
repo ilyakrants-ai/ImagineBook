@@ -2,8 +2,9 @@ package io.github.jumperonjava.imaginebook.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-//? if < 1.21.5
+//? if < 1.21.5 {
 import com.mojang.blaze3d.systems.RenderSystem;
+//?}
 import io.github.jumperonjava.imaginebook.*;
 import io.github.jumperonjava.imaginebook.image.ImageData;
 import io.github.jumperonjava.imaginebook.util.VersionFunctions;
@@ -56,8 +57,9 @@ public class BookScreenMixin extends Screen {
 
 
     void parseImages(BookScreen.Contents contents) {
-        //? if >= 1.21.1
+        //? if >= 1.21.1 {
         /*var pages = contents.pages();*/
+        //?}
 
         //? if >= 1.21.1 {
         /*for (int i = 0; i < pages.size(); i++) {
