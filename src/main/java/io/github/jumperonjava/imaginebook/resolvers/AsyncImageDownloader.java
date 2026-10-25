@@ -172,7 +172,7 @@ public class AsyncImageDownloader {
 
     public static BookDrawable registerTexture(InputStream texture, Identifier identifier) {
         NativeImage nativeImage = toNativeImage(texture);
-        //? if < 1.21.5 {
+        //? if < 1.21.4 {
         var backedTestTexture = new NativeImageBackedTexture(nativeImage);
         //?} else {
         /*var backedTestTexture = new NativeImageBackedTexture(identifier::toString, nativeImage);

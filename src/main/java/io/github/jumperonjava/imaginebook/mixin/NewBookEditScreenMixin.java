@@ -2,7 +2,7 @@ package io.github.jumperonjava.imaginebook.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-//? if < 1.21.5 {
+//? if < 1.21.9 {
 import com.mojang.blaze3d.systems.RenderSystem;
 //?}
 import io.github.jumperonjava.imaginebook.*;
@@ -15,23 +15,27 @@ import io.github.jumperonjava.imaginebook.util.DeletedImageData;
 import io.github.jumperonjava.imaginebook.util.VersionFunctions;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
-//? if < 1.21.9
+//? if < 1.21.9 {
 import net.minecraft.client.gui.navigation.GuiNavigationPath;
+//?}
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.BookEditScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.PageTurnWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resource.language.I18n;
-//? if < 1.21.6
+//? if < 1.21.6 {
 import net.minecraft.client.sound.PositionedSoundInstance;
-//? if < 1.21.6
+//?}
+//? if < 1.21.6 {
 import net.minecraft.client.util.SelectionManager;
+//?}
 import net.minecraft.client.util.math.Rect2i;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-//? if < 1.21.6
+//? if < 1.21.6 {
 import net.minecraft.sound.SoundEvents;
+//?}
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
@@ -85,8 +89,12 @@ public abstract class NewBookEditScreenMixin extends Screen {
     /*@Shadow
     private EditBoxWidget editBox;
     *///?}
+    //? if >= 1.21.9 {
+    /*@Shadow
+    public abstract void playClickSound();
+    *///?}
 
-    //? if < 1.21.6 {
+    //? if < 1.21.9 {
     @Shadow
     private boolean dirty;
     @Shadow
@@ -249,6 +257,18 @@ public abstract class NewBookEditScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At("HEAD"))
     void init(CallbackInfo ci) {
+        //? if >= 1.21.6 {
+        /*if (this.client == null || this.textRenderer == null) {
+            try {
+                java.lang.reflect.Field f = net.minecraft.client.gui.screen.Screen.class.getDeclaredField("client");
+                f.setAccessible(true);
+                f.set(this, net.minecraft.client.MinecraftClient.getInstance());
+                java.lang.reflect.Field t = net.minecraft.client.gui.screen.Screen.class.getDeclaredField("textRenderer");
+                t.setAccessible(true);
+                t.set(this, net.minecraft.client.MinecraftClient.getInstance().textRenderer);
+            } catch (Exception ignored) {}
+        }*/
+        //?}
         int elementHeight = 20;
         int gap = 4;
         int heightOffset = height - 50;
@@ -480,12 +500,23 @@ public abstract class NewBookEditScreenMixin extends Screen {
         };
     }
 
+    //? if >= 1.21.6 {
+    /*@Override
+    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
+        var click = new net.minecraft.client.gui.Click(mouseX, mouseY, mouseButton);
+        return mouseClicked(click, false);
+    }
+
+    *///?}
     //? if >= 1.21.9 {
     /*@Override
     public boolean mouseClicked(net.minecraft.client.gui.Click click, boolean doubled) {
     *///?} else if >= 1.21.6 {
     /*@Override
-    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
+    public boolean mouseClicked(net.minecraft.client.gui.Click click, boolean doubled) {
+        double mouseX = click.x();
+        double mouseY = click.y();
+        int mouseButton = click.button();
     *///?} else {
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     void mouseClicked(double mouseX, double mouseY, int mouseButton, CallbackInfoReturnable<Boolean> cir) {
@@ -558,6 +589,8 @@ public abstract class NewBookEditScreenMixin extends Screen {
     //? if >= 1.21.9 {
     /*@Override
     public boolean mouseDragged(net.minecraft.client.gui.Click click, double deltaX, double deltaY) {
+        double mouseX = click.x();
+        double mouseY = click.y();
     *///?} else if >= 1.21.6 {
     /*@Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
@@ -565,7 +598,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
     @Inject(method = "mouseDragged", at = @At("HEAD"), cancellable = true)
     public void mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY, CallbackInfoReturnable<Boolean> cir) {
     //?}
-        //? if >= 1.21.9 {
+        //? if >= 1.21.6 {
         /*if (click.button() != 0)
         *///?} else {
         if (button != 0)
@@ -600,12 +633,12 @@ public abstract class NewBookEditScreenMixin extends Screen {
         *///?}
     }
 
-    //? if >= 1.21.9 {
+    //? if >= 1.21.6 {
     /*@Override
     public boolean mouseReleased(net.minecraft.client.gui.Click click) {
-    *///?} elif >= 1.21.6 {
-    /*@Override
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        double mouseX = click.x();
+        double mouseY = click.y();
+        int button = click.button();
     *///?} else {
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
@@ -616,6 +649,8 @@ public abstract class NewBookEditScreenMixin extends Screen {
         }
         //? if >= 1.21.9 {
         /*return super.mouseReleased(click);
+        *///?} else if >= 1.21.6 {
+        /*return super.mouseReleased(new net.minecraft.client.gui.Click(mouseX, mouseY, button));
         *///?} else {
         return super.mouseReleased(mouseX, mouseY, button);
         //?}
@@ -653,15 +688,20 @@ public abstract class NewBookEditScreenMixin extends Screen {
     //? if < 1.20.4 {
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double verticalAmount) {
-     //?} elif < 1.21.9 {
-    /*@Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
-     *///?} else {
+        return mouseScrolled(mouseX, mouseY, 0, verticalAmount);
+    }
+    //?}
+
+    //? if >= 1.21.9 {
     /*@Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount, double scrollStepAmount) {
-        *///?}
-        //? if >= 1.21.6
+    *///?} else {
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+    //?}
+        //? if >= 1.21.6 {
         /*boolean inSigningScreen = client.currentScreen instanceof BookSigningScreen;*/
+        //?}
         if (/*? if <1.21.6 {*/!signing/*?} else {*/ /*!inSigningScreen *//*?}*/) {
             verticalAmount = Math.signum(verticalAmount);
             //? if >= 1.21.9 {
@@ -814,16 +854,25 @@ public abstract class NewBookEditScreenMixin extends Screen {
         currentPage = MathHelper.clamp(currentPage, -1, display_pages.size() - 1);
 
         //? if < 1.21.6 {
-        doneButton.active = ((PageContentAccessor) this.getPageContent()).getLines().length <= 14;
-        signButton.active = ((PageContentAccessor) this.getPageContent()).getLines().length <= 14;
+        boolean tooManyLines = ((PageContentAccessor) this.getPageContent()).getLines().length > 14;
+        doneButton.active = !tooManyLines;
+        signButton.active = !tooManyLines;
+        //?} elif < 1.21.9 {
+        boolean tooManyLines = ((PageContentAccessor) this.getPageContent()).getLines().length > 14;
+        doneButton.active = !tooManyLines;
+        signButton.active = !tooManyLines;
+        //?} else {
+        boolean tooManyLines = VersionFunctions.wrapLines(this.textRenderer, getCurrentPageContent(), 116).size() > 14;
+        this.doneButton.active = !tooManyLines;
         //?}
 
         if (error != null) {
             context.drawCenteredTextWithShadow(client.textRenderer, error, width / 2, height - 20, VersionFunctions.argb(255, 255, 100, 100));
         }
         boolean editing = currentEdited != -1;
-        //? if >= 1.21.6
+        //? if >= 1.21.6 {
         /*boolean inSigningScreen = client.currentScreen instanceof BookSigningScreen;*/
+        //?}
         if (/*? if <1.21.6 {*/signing/*?} else {*/ /*inSigningScreen *//*?}*/) {
             editing = false;
         }
@@ -851,14 +900,14 @@ public abstract class NewBookEditScreenMixin extends Screen {
         var combined = new ArrayList<ImageData>();
         combined.addAll(display_pages.get(currentPage));
         for (ImageData imageData : VersionFunctions.reversed(combined)) {
-            //? if < 1.21.5 {
+            //? if < 1.21.9 {
             RenderSystem.disableCull();
             RenderSystem.enableBlend();
             //?}
 
             imageData.renderImage(context, bookX, bookY);
 
-            //? if < 1.21.5 {
+            //? if < 1.21.9 {
             RenderSystem.disableBlend();
             RenderSystem.enableCull();
             //?}
@@ -881,17 +930,17 @@ public abstract class NewBookEditScreenMixin extends Screen {
         int n = this.textRenderer.getWidth(this.pageIndicatorText);
         context.drawText(this.textRenderer, this.pageIndicatorText, i - n + 192 - 44, 18, 0x3F000000, false);
 
-        //? if < 1.21.6 {
+        if (VersionFunctions.wrapLines(this.textRenderer, getCurrentPageContent(), 116).size() > 14) {
+            context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.argb(255, 255, 100, 100));
+        }
+
+        //? if < 1.21.9 {
         for (var line : ((PageContentAccessor) this.getPageContent()).getLines()) {
             context.drawText(this.textRenderer, ((LineAccessor) line).getText(), ((LineAccessor) line).getX(), ((LineAccessor) line).getY(), 0x3F000000, false);
         }
 
         this.drawSelection(context, ((PageContentAccessor) this.getPageContent()).getSelectionRectangles());
         this.drawCursor(context, ((PageContentAccessor) this.getPageContent()).getPosition(), ((PageContentAccessor) this.getPageContent()).isAtEnd());
-
-        if (((PageContentAccessor) this.getPageContent()).getLines().length > 14) {
-            context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.argb(255, 255, 100, 100));
-        }
         //?} else {
         int contentAreaX = (this.width - 116) / 2 - 4;
         int contentAreaY = 32;

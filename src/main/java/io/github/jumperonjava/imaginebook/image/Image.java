@@ -34,7 +34,10 @@ public class Image implements BookDrawable {
     public Image(Identifier identifier) {
         this.identifier = identifier;
         //? if >= 1.21.4 {
-        /*var texture = MinecraftClient.getInstance().getTextureManager().getTexture(identifier);
+        /*var texture = MinecraftClient.getInstance().getTextureManager().getTexture(identifier, null);
+            if (texture == null) {
+                texture = MinecraftClient.getInstance().getTextureManager().getTexture(MissingSprite.getMissingSpriteId(), null);
+            }
         *///?} else {
         var texture = MinecraftClient.getInstance().getTextureManager().getOrDefault(identifier,MissingSprite.getMissingSpriteTexture());
         //?}

@@ -2,7 +2,7 @@ package io.github.jumperonjava.imaginebook.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-//? if < 1.21.5 {
+//? if < 1.21.9 {
 import com.mojang.blaze3d.systems.RenderSystem;
 //?}
 import io.github.jumperonjava.imaginebook.*;
@@ -99,18 +99,16 @@ public class BookScreenMixin extends Screen {
         var images = imaginebook_pages.get(pageIndex);
         if (images == null) return;
         for (ImageData image : VersionFunctions.reversed(images)) {
-            //? if < 1.21.5 {
+            //? if < 1.21.9 {
             RenderSystem.disableCull();
             RenderSystem.enableBlend();
-            //?} else {
             //?}
 
             image.renderImage(context, bookX, bookY);
 
-            //? if < 1.21.5 {
+            //? if < 1.21.9 {
             RenderSystem.disableBlend();
             RenderSystem.enableCull();
-            //?} else {
             //?}
         }
         previousPageButton.render(context, mouseX, mouseY, delta);
