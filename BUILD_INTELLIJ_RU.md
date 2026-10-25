@@ -34,7 +34,7 @@ Gradle ставить не нужно — проект использует Grad
 того, что IDEA по умолчанию пытается импортировать проект собственным встроенным Gradle
 («Use Gradle from → Specified location» / Gradle distribution bundled with IDEA).
 
-Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle 8.11, что и в консоли):
+Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle 8.14, что и в консоли):
 
 1. `Settings → Build, Execution, Deployment → Build Tools → Gradle`
 2. **Distribution Source** → выбрать **`Wrapper`** (в старых версиях IDEA: *Use Gradle from → gradle-wrapper.properties file*).
