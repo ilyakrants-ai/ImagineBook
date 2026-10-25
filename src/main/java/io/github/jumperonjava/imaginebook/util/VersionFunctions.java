@@ -33,7 +33,7 @@ public class VersionFunctions {
 
     //? if < 1.21.6 {
     public static ColorHelper.Argb ColorHelper = new ColorHelper.Argb();
-    //?} else {
+    //?} elif < 1.21.7 {
     /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
 
     public static class LegacyColorHelper {
@@ -41,7 +41,15 @@ public class VersionFunctions {
             return net.minecraft.util.math.ColorHelper.getArgb(alpha, red, green, blue);
         }
     }*/
-    //?}
+    *//*?} else {*/
+    /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
+
+    public static class LegacyColorHelper {
+        public int getArgb(int alpha, int red, int green, int blue) {
+            return net.minecraft.util.math.ColorHelper.Argb.getArgb(alpha, red, green, blue);
+        }
+    }*/
+    *///?}
 
 
     public static void pushMatrix(DrawContext context) {

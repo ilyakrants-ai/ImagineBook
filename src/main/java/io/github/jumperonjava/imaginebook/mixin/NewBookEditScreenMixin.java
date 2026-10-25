@@ -165,22 +165,18 @@ public abstract class NewBookEditScreenMixin extends Screen {
         pages.set(currentPage, content);
         //? if >= 1.21.9 {
         /*this.editBox.setText(content, true);
-        *///?} elif >= 1.21.6 {
+        *//*?} elif >= 1.21.6 {*/
         /*this.editBox.setText(content);
-        *///?} else {
-        //? if < 1.21.6 {
-
-
-        this.dirty = true;
+        *//*?} else {*/
+        /*this.dirty = true;
         var start = currentPageSelectionManager.getSelectionStart();
         var end = currentPageSelectionManager.getSelectionEnd();
         start = MathHelper.clamp(start, 0, pages.size() - 1);
         end = MathHelper.clamp(end, 0, pages.size() - 1);
         currentPageSelectionManager.setSelection(start, end);
 
-        invalidatePageContent();
-        //?}
-        //?}
+        invalidatePageContent();*/
+        *///?}
     }
 
     /*? if <1.21.6 {*/
@@ -891,19 +887,16 @@ public abstract class NewBookEditScreenMixin extends Screen {
             context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable("imaginebook.error.too_much_lines"), width / 2, 222, VersionFunctions.ColorHelper.getArgb(255, 255, 100, 100));
         }
         *//*?} elif >= 1.21.9 {*/
-        /*int contentAreaX = (this.width - BookEditScreen.MAX_TEXT_WIDTH) / 2 - 4;
+        /*int contentAreaX = (this.width - 116) / 2 - 4;
         int contentAreaY = 32;
 
-        List<OrderedText> wrappedLines = this.textRenderer.wrapLines(StringVisitable.plain(getCurrentPageContent()), BookEditScreen.MAX_TEXT_WIDTH);
+        List<OrderedText> wrappedLines = this.textRenderer.wrapLines(StringVisitable.plain(getCurrentPageContent()), 116);
 
         int currentLineY = contentAreaY;
         int lineHeight = this.textRenderer.fontHeight;
 
         for (OrderedText line : wrappedLines) {
-            int lineDrawY = currentLineY;
-
-            context.drawText(this.textRenderer, line, contentAreaX, lineDrawY, 0x3F000000, false);
-
+            context.drawText(this.textRenderer, line, contentAreaX, currentLineY, 0x3F000000, false);
             currentLineY += lineHeight;
         }
         *///?}
