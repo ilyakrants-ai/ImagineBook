@@ -22,14 +22,9 @@ stonecutter {
             for (version in versions) vers("$version-$loader", version)
         }
         
-        // NOTE: older versions are temporarily commented out so the project can be
-        // built on low-RAM machines (Stonecutter would otherwise configure all of them).
-        // Uncomment when building for those versions (requires ~8GB RAM and Java 17 toolchain for 1.20.x-forge).
-        mc("fabric", "1.21.11")
-        mc("neoforge", "1.21.11")
-//        mc("fabric","1.20.1","1.20.4","1.21.1", "1.21.3", "1.21.4", "1.21.5","1.21.6", "1.21.7", "1.21.8", "1.21.10", "1.21.11")
-//        mc("neoforge","1.21.1", "1.21.3", "1.21.4", "1.21.5","1.21.6", "1.21.7", "1.21.8", "1.21.10", "1.21.11")
-//        mc("forge", "1.20.1", )
+        mc("fabric","1.20.1","1.20.4","1.21.1", "1.21.3", "1.21.4", "1.21.5","1.21.6", "1.21.7", "1.21.8", "1.21.10", "1.21.11")
+        mc("neoforge","1.21.1", "1.21.3", "1.21.4", "1.21.5","1.21.6", "1.21.7", "1.21.8", "1.21.10", "1.21.11")
+        mc("forge", "1.20.1", )
         
     }
     create(rootProject)

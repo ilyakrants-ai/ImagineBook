@@ -22,8 +22,10 @@ Gradle ставить не нужно — проект использует Grad
    Также: `Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JVM` → **JDK 21**.
 
 > В репозитории активной версией стоит `1.21.11-fabric` (см. `stonecutter.gradle.kts`).
-> Старые версии Minecraft временно отключены в `settings.gradle.kts`, чтобы проект
-> открывался и собирался быстрее. Чтобы включить их обратно — раскомментируйте строки `mc("fabric", ...)` и т.д.
+> Все остальные версии Minecraft активны в `settings.gradle.kts`. Полная настройка проекта
+> (все ~23 подсборки) требует значительной памяти: при проблемах увеличите `org.gradle.jvmargs`
+> в `gradle.properties` (например, до `-Xmx8G`) или временно закомментируйте ненужные версии
+> в `settings.gradle.kts`, оставив только `mc("fabric", "1.21.11")` и `mc("neoforge", "1.21.11")`.
 
 ## 3. Компиляция
 
