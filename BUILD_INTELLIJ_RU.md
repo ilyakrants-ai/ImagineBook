@@ -36,10 +36,14 @@ Gradle ставить не нужно — проект использует Grad
 bundled with IDEA) либо использует устаревший кэш синхронизации. Метод `extendsFrom(Provider[])`
 появился только в Gradle 8.11+, поэтому старый встроенный Gradle его «не видит».
 
-Также IDEA может показывать предупреждение *«Gradle X is not the latest minor version, we recommend
-upgrading to Gradle Y»* — это инспекция, она не мешает сборке. Версия Wrapper в этом проекте всегда
-поддерживается актуальной (см. `gradle/wrapper/gradle-wrapper.properties`); если после обновления
-предупреждение не исчезло — просто пересинхронизируйте проект.
+Важно: **не обновляйте версию Gradle в `gradle/wrapper/gradle-wrapper.properties` выше 8.11**.
+Проект использует Architectury Loom `1.17-SNAPSHOT`, который на Gradle 8.12+ падает при конфигурации
+с ошибкой `NoSuchMethodError: Configuration.extendsFrom(Provider[])` (Loom собран против старого API).
+Поэтому оставлена проверенная версия 8.11. Предупреждение IDEA *«Gradle 8.11 is not the latest minor
+version, we recommend upgrading to Gradle 8.14.x»* — это просто инспекция, она НЕ мешает сборке.
+Игнорируйте её или отключите: `Settings → Editor → Inspections → Gradle → «Gradle version»` (снять галочку).
+Актуальная версия Wrapper указана в `gradle/wrapper/gradle-wrapper.properties` (сейчас это 8.11 —
+это осознанный выбор, совместимый с Loom).
 
 Решение — заставить IDEA использовать **Gradle Wrapper** (тот же Gradle, что и в консоли):
 
