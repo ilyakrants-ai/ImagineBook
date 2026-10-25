@@ -25,7 +25,7 @@ public class VersionFunctions {
     public static void drawTexture(DrawContext context, Identifier identifier, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
         //? if >= 1.21.6 {
         /*context.drawTexture(Imaginebook.GUI_TEXTURED_NOCULL, identifier, x, y, u, v, width, height, textureWidth, textureHeight);
-        *//*?} elif >= 1.21.3 {*/
+        *///?} elif >= 1.21.3 {
         /*context.drawTexture(RenderLayer::getGuiTextured, identifier, x, y, u, v, width, height, textureWidth, textureHeight);
         *///?} else {
         context.drawTexture(identifier, x, y, u, v, width, height, textureWidth, textureHeight);
@@ -104,8 +104,8 @@ public class VersionFunctions {
     }
 
     //? if >= 1.21.6 {
-    /*public static List<OrderedText> wrapLines(TextRenderer textRenderer, String content, int maxWidth) {
-        return textRenderer.wrapLines(StringVisitable.plain(content), maxWidth);
+    /*public static List<net.minecraft.text.OrderedText> wrapLines(net.minecraft.client.font.TextRenderer textRenderer, String content, int maxWidth) {
+        return textRenderer.wrapLines(net.minecraft.util.StringVisitable.plain(content), maxWidth);
     }
     *///?} else {
     public static List<net.minecraft.text.OrderedText> wrapLines(net.minecraft.client.font.TextRenderer textRenderer, String content, int maxWidth) {
