@@ -1,0 +1,407 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS A:\mods\ImagineBook> ./gradlew :1.21.11-fabric:runClient
+Running Stonecutter 0.5
+
+> Configure project :1.20.1-fabric
+Architectury Loom: 1.14.476
+This version of Architectury Loom is in beta! Please report any issues you encounter: https://github.com/architectury/architectury-loom/issues
+Architect Plugin: 3.4.164
+
+> Task :1.21.11-fabric:compileJava FAILED
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:12: error: cannot find symbol
+    BookEditScreen.Line[] getLines();
+                  ^
+  symbol:   class Line
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:18: error: cannot find symbol
+    BookEditScreen.Position getPosition();
+                  ^
+  symbol:   class Position
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:111: error: cannot find symbol
+    protected abstract BookEditScreen.PageContent getPageContent();
+                                     ^
+  symbol:   class PageContent
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:117: error: cannot find symbol
+    protected abstract void drawCursor(DrawContext context, BookEditScreen.Position position, boolean atEnd);
+                                                                          ^
+  symbol:   class Position
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\LineAccessor.java:9: error: cannot find symbol
+@Mixin(BookEditScreen.Line.class)
+                     ^
+  symbol:   class Line
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:9: error: cannot find symbol
+@Mixin(BookEditScreen.PageContent.class)
+                     ^
+  symbol:   class PageContent
+  location: class BookEditScreen
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\image\Image.java:42: error: cannot find symbol
+        var texture = MinecraftClient.getInstance().getTextureManager().getOrDefault(identifier,MissingSprite.getMissingSpriteTexture());
+                                                                                                             ^
+  symbol:   method getMissingSpriteTexture()
+  location: class MissingSprite
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:103: error: cannot find symbol
+            RenderSystem.disableCull();
+                        ^
+  symbol:   method disableCull()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:104: error: cannot find symbol
+            RenderSystem.enableBlend();
+                        ^
+  symbol:   method enableBlend()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:110: error: cannot find symbol
+            RenderSystem.disableBlend();
+                        ^
+  symbol:   method disableBlend()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:111: error: cannot find symbol
+            RenderSystem.enableCull();
+                        ^
+  symbol:   method enableCull()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:541: error: method onPress in class ButtonWidget cannot be applied to given types;
+                button.onPress();
+                      ^
+  required: AbstractInput
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:643: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:655: error: method mouseReleased in interface ParentElement cannot be applied to given types;
+        return super.mouseReleased(mouseX, mouseY, button);
+                    ^
+  required: Click
+  found:    double,double,int
+  reason: actual and formal argument lists differ in length
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:689: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:710: error: cannot find symbol
+            if (hasControlDown()) {
+                ^
+  symbol:   method hasControlDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:717: error: cannot find symbol
+            if (hasShiftDown()) {
+                ^
+  symbol:   method hasShiftDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:724: error: cannot find symbol
+            if (hasAltDown()) {
+                ^
+  symbol:   method hasAltDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:800: error: cannot find symbol
+                        if (hasShiftDown() || hasAltDown()) {
+                            ^
+  symbol:   method hasShiftDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:800: error: cannot find symbol
+                        if (hasShiftDown() || hasAltDown()) {
+                                              ^
+  symbol:   method hasAltDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:814: error: cannot find symbol
+                        if (!hasAltDown()) {
+                             ^
+  symbol:   method hasAltDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:821: error: cannot find symbol
+                        if (!hasShiftDown()) {
+                             ^
+  symbol:   method hasShiftDown()
+  location: class NewBookEditScreenMixin
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:835: error: cannot find symbol
+                client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                                                                     ^
+  symbol:   method master(Reference<SoundEvent>,float)
+  location: class PositionedSoundInstance
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:844: error: method mouseScrolled in interface ParentElement cannot be applied to given types;
+        return super.mouseScrolled(mouseX, mouseY, verticalAmount);
+                    ^
+  required: double,double,double,double
+  found:    double,double,double
+  reason: actual and formal argument lists differ in length
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:861: error: variable tooManyLines is already defined in method render(DrawContext,int,int,float,CallbackInfo)
+        boolean tooManyLines = ((PageContentAccessor) this.getPageContent()).getLines().length > 14;
+                ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:865: error: variable tooManyLines is already defined in method render(DrawContext,int,int,float,CallbackInfo)
+        boolean tooManyLines = VersionFunctions.wrapLines(this.textRenderer, getCurrentPageContent(), 116).size() > 14;
+                ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:904: error: cannot find symbol
+            RenderSystem.disableCull();
+                        ^
+  symbol:   method disableCull()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:905: error: cannot find symbol
+            RenderSystem.enableBlend();
+                        ^
+  symbol:   method enableBlend()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:911: error: cannot find symbol
+            RenderSystem.disableBlend();
+                        ^
+  symbol:   method disableBlend()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:912: error: cannot find symbol
+            RenderSystem.enableCull();
+                        ^
+  symbol:   method enableCull()
+  location: class RenderSystem
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\resolvers\AsyncImageDownloader.java:176: error: no suitable constructor found for NativeImageBackedTexture(NativeImage)
+        var backedTestTexture = new NativeImageBackedTexture(nativeImage);
+                                ^
+    constructor NativeImageBackedTexture.NativeImageBackedTexture(Supplier<String>,NativeImage) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor NativeImageBackedTexture.NativeImageBackedTexture(String,int,int,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor NativeImageBackedTexture.NativeImageBackedTexture(Supplier<String>,int,int,boolean) is not applicable
+      (actual and formal argument lists differ in length)
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:35: error: no suitable method found for drawTexture(Identifier,int,int,float,float,int,int,int,int)
+        context.drawTexture(identifier, x, y, u, v, width, height, textureWidth, textureHeight);
+               ^
+    method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:53: error: cannot find symbol
+        context.getMatrices().push();
+                             ^
+  symbol:   method push()
+  location: class Matrix3x2fStack
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:62: error: cannot find symbol
+        context.getMatrices().pop();
+                             ^
+  symbol:   method pop()
+  location: class Matrix3x2fStack
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:71: error: incompatible types: int cannot be converted to Matrix3x2f
+        context.getMatrices().translate(x, y, 0);
+                                              ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:80: error: incompatible types: int cannot be converted to Matrix3x2f
+        context.getMatrices().scale(x, y, 1);
+                                          ^
+A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:89: error: cannot find symbol
+        context.getMatrices().multiply(new Quaternionf().rotateZ((float) Math.toRadians(degrees)));
+                             ^
+  symbol:   method multiply(Quaternionf)
+  location: class Matrix3x2fStack
+Note: A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\resolvers\AsyncImageDownloader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+37 errors
+[Incubating] Problems report is available at: file:///A:/mods/ImagineBook/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':1.21.11-fabric:compileJava'.
+> Compilation failed; see the compiler output below.
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\resolvers\AsyncImageDownloader.java:176: error: no suitable constructor found for NativeImageBackedTexture(NativeImage)
+          var backedTestTexture = new NativeImageBackedTexture(nativeImage);
+                                  ^
+      constructor NativeImageBackedTexture.NativeImageBackedTexture(Supplier<String>,NativeImage) is not applicable
+        (actual and formal argument lists differ in length)
+      constructor NativeImageBackedTexture.NativeImageBackedTexture(String,int,int,boolean) is not applicable
+        (actual and formal argument lists differ in length)
+      constructor NativeImageBackedTexture.NativeImageBackedTexture(Supplier<String>,int,int,boolean) is not applicable
+        (actual and formal argument lists differ in length)
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:35: error: no suitable method found for drawTexture(Identifier,int,int,float,float,int,int,int,int)
+          context.drawTexture(identifier, x, y, u, v, width, height, textureWidth, textureHeight);
+                 ^
+      method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+      method DrawContext.drawTexture(RenderPipeline,Identifier,int,int,float,float,int,int,int,int,int,int,int) is not applicable
+        (actual and formal argument lists differ in length)
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:643: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:689: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:71: error: incompatible types: int cannot be converted to Matrix3x2f
+          context.getMatrices().translate(x, y, 0);
+                                                ^
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:80: error: incompatible types: int cannot be converted to Matrix3x2f
+          context.getMatrices().scale(x, y, 1);
+                                            ^
+  Note: Recompile with -Xlint:deprecation for details.
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:861: error: variable tooManyLines is already defined in method render(DrawContext,int,int,float,CallbackInfo)
+          boolean tooManyLines = ((PageContentAccessor) this.getPageContent()).getLines().length > 14;
+                  ^
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:865: error: variable tooManyLines is already defined in method render(DrawContext,int,int,float,CallbackInfo)
+          boolean tooManyLines = VersionFunctions.wrapLines(this.textRenderer, getCurrentPageContent(), 116).size() > 14;
+                  ^
+  Note: A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\resolvers\AsyncImageDownloader.java uses or overrides a deprecated API.
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:541: error: method onPress in class ButtonWidget cannot be applied to given types;
+                  button.onPress();
+                        ^
+    required: AbstractInput
+    found:    no arguments
+    reason: actual and formal argument lists differ in length
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:655: error: method mouseReleased in interface ParentElement cannot be applied to given types;
+          return super.mouseReleased(mouseX, mouseY, button);
+                      ^
+    required: Click
+    found:    double,double,int
+    reason: actual and formal argument lists differ in length
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:844: error: method mouseScrolled in interface ParentElement cannot be applied to given types;
+          return super.mouseScrolled(mouseX, mouseY, verticalAmount);
+                      ^
+    required: double,double,double,double
+    found:    double,double,double
+    reason: actual and formal argument lists differ in length
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\image\Image.java:42: error: cannot find symbol
+          var texture = MinecraftClient.getInstance().getTextureManager().getOrDefault(identifier,MissingSprite.getMissingSpriteTexture());
+                                                                                                               ^
+    symbol:   method getMissingSpriteTexture()
+    location: class MissingSprite
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:103: error: cannot find symbol
+              RenderSystem.disableCull();
+                          ^
+    symbol:   method disableCull()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:104: error: cannot find symbol
+              RenderSystem.enableBlend();
+                          ^
+    symbol:   method enableBlend()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:110: error: cannot find symbol
+              RenderSystem.disableBlend();
+                          ^
+    symbol:   method disableBlend()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\BookScreenMixin.java:111: error: cannot find symbol
+              RenderSystem.enableCull();
+                          ^
+    symbol:   method enableCull()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:710: error: cannot find symbol
+              if (hasControlDown()) {
+                  ^
+    symbol:   method hasControlDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:717: error: cannot find symbol
+              if (hasShiftDown()) {
+                  ^
+    symbol:   method hasShiftDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:724: error: cannot find symbol
+              if (hasAltDown()) {
+                  ^
+    symbol:   method hasAltDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:800: error: cannot find symbol
+                          if (hasShiftDown() || hasAltDown()) {
+                              ^
+    symbol:   method hasShiftDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:800: error: cannot find symbol
+                          if (hasShiftDown() || hasAltDown()) {
+                                                ^
+    symbol:   method hasAltDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:814: error: cannot find symbol
+                          if (!hasAltDown()) {
+                               ^
+    symbol:   method hasAltDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:821: error: cannot find symbol
+                          if (!hasShiftDown()) {
+                               ^
+    symbol:   method hasShiftDown()
+    location: class NewBookEditScreenMixin
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:835: error: cannot find symbol
+                  client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+                                                                       ^
+    symbol:   method master(Reference<SoundEvent>,float)
+    location: class PositionedSoundInstance
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:904: error: cannot find symbol
+              RenderSystem.disableCull();
+                          ^
+    symbol:   method disableCull()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:905: error: cannot find symbol
+              RenderSystem.enableBlend();
+                          ^
+    symbol:   method enableBlend()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:911: error: cannot find symbol
+              RenderSystem.disableBlend();
+                          ^
+    symbol:   method disableBlend()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:912: error: cannot find symbol
+              RenderSystem.enableCull();
+                          ^
+    symbol:   method enableCull()
+    location: class RenderSystem
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:53: error: cannot find symbol
+          context.getMatrices().push();
+                               ^
+    symbol:   method push()
+    location: class Matrix3x2fStack
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:62: error: cannot find symbol
+          context.getMatrices().pop();
+                               ^
+    symbol:   method pop()
+    location: class Matrix3x2fStack
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\util\VersionFunctions.java:89: error: cannot find symbol
+          context.getMatrices().multiply(new Quaternionf().rotateZ((float) Math.toRadians(degrees)));
+                               ^
+    symbol:   method multiply(Quaternionf)
+    location: class Matrix3x2fStack
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:12: error: cannot find symbol
+      BookEditScreen.Line[] getLines();
+                    ^
+    symbol:   class Line
+    location: class BookEditScreen
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:18: error: cannot find symbol
+      BookEditScreen.Position getPosition();
+                    ^
+    symbol:   class Position
+    location: class BookEditScreen
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:111: error: cannot find symbol
+      protected abstract BookEditScreen.PageContent getPageContent();
+                                       ^
+    symbol:   class PageContent
+    location: class BookEditScreen
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\NewBookEditScreenMixin.java:117: error: cannot find symbol
+      protected abstract void drawCursor(DrawContext context, BookEditScreen.Position position, boolean atEnd);
+                                                                            ^
+    symbol:   class Position
+    location: class BookEditScreen
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\LineAccessor.java:9: error: cannot find symbol
+  @Mixin(BookEditScreen.Line.class)
+                       ^
+    symbol:   class Line
+    location: class BookEditScreen
+  A:\mods\ImagineBook\src\main\java\io\github\jumperonjava\imaginebook\mixin\accessor\PageContentAccessor.java:9: error: cannot find symbol
+  @Mixin(BookEditScreen.PageContent.class)
+                       ^
+    symbol:   class PageContent
+    location: class BookEditScreen
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  37 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+4 actionable tasks: 1 executed, 3 up-to-date
+PS A:\mods\ImagineBook> 
