@@ -35,23 +35,19 @@ public class VersionFunctions {
 
     //? if < 1.21.6 {
     public static ColorHelper.Argb ColorHelper = new ColorHelper.Argb();
-    //?} elif < 1.21.7 {
+    //?} else {
     /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
 
     public static class LegacyColorHelper {
         public int getArgb(int alpha, int red, int green, int blue) {
-            return net.minecraft.util.math.ColorHelper.getArgb(alpha, red, green, blue);
+            //? if >= 1.21.7 {
+            /*return net.minecraft.util.math.ColorHelper.Argb.getArgb(alpha, red, green, blue);
+            *///?} else {
+            /*return net.minecraft.util.math.ColorHelper.getArgb(alpha, red, green, blue);
+            *///?}
         }
     }*/
-    *//*?} else {*/
-    /*public static final LegacyColorHelper ColorHelper = new LegacyColorHelper();
-
-    public static class LegacyColorHelper {
-        public int getArgb(int alpha, int red, int green, int blue) {
-            return net.minecraft.util.math.ColorHelper.Argb.getArgb(alpha, red, green, blue);
-        }
-    }*/
-    *///?}
+    //?}
 
 
     public static void pushMatrix(DrawContext context) {
@@ -111,7 +107,7 @@ public class VersionFunctions {
     /*public static List<OrderedText> wrapLines(TextRenderer textRenderer, String content, int maxWidth) {
         return textRenderer.wrapLines(StringVisitable.plain(content), maxWidth);
     }
-    *//*?} else {*/
+    *///?} else {
     public static List<net.minecraft.text.OrderedText> wrapLines(net.minecraft.client.font.TextRenderer textRenderer, String content, int maxWidth) {
         return textRenderer.wrapLines(net.minecraft.text.Text.literal(content), maxWidth);
     }

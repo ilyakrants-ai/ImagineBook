@@ -165,9 +165,9 @@ public abstract class NewBookEditScreenMixin extends Screen {
         pages.set(currentPage, content);
         //? if >= 1.21.9 {
         /*this.editBox.setText(content, true);
-        *//*?} elif >= 1.21.6 {*/
+        *///?} elif >= 1.21.6 {
         /*this.editBox.setText(content);
-        *//*?} else {*/
+        *///?} else {
         this.dirty = true;
         var start = currentPageSelectionManager.getSelectionStart();
         var end = currentPageSelectionManager.getSelectionEnd();
@@ -567,7 +567,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
         *///?} else {
         if (button != 0)
         //?}
-            //? if >= 1.21.6 {
+        //? if >= 1.21.6 {
             /*return false;
         *///?} else {
         return;
@@ -650,7 +650,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
      //?} elif < 1.21.9 {
     /*@Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
-        *///?} else {
+     *///?} else {
     /*@Override
     public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount, double scrollStepAmount) {
         *///?}
@@ -798,7 +798,7 @@ public abstract class NewBookEditScreenMixin extends Screen {
         return super.mouseScrolled(mouseX, mouseY, verticalAmount);
          //?} elif < 1.21.9 {
         /*return super.mouseScrolled(mouseX, mouseY, horizontalAmount, verticalAmount);
-        *///?} else {
+     *///?} else {
         /*return super.mouseScrolled(mouseX, mouseY, horizontalAmount, verticalAmount, scrollStepAmount);
         *///?}
     }
